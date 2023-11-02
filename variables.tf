@@ -56,13 +56,13 @@ variable "inbound_rules" {
 
 variable "outbound_rule" {
   type = list(object({
-    protocol                       = string
-    port_range                     = string
-    destination_addresses          = list(string)
-    droplet_ids                    = list(any)
-    kubernetes_ids                 = list(any)
-    load_balancer_uids             = list(any)
-    tags                           = list(any)
+    protocol              = string
+    port_range            = string
+    destination_addresses = list(string)
+    droplet_ids           = list(any)
+    kubernetes_ids        = list(any)
+    load_balancer_uids    = list(any)
+    tags                  = list(any)
   }))
   default = [
     {
@@ -71,10 +71,10 @@ variable "outbound_rule" {
       destination_addresses = [
         "0.0.0.0/0",
       "::/0"]
-      droplet_ids                    = []
-      kubernetes_ids                 = []
-      load_balancer_uids             = []
-      tags                           = []
+      droplet_ids        = []
+      kubernetes_ids     = []
+      load_balancer_uids = []
+      tags               = []
     },
     {
       protocol   = "udp"
@@ -82,10 +82,10 @@ variable "outbound_rule" {
       destination_addresses = [
         "0.0.0.0/0",
       "::/0"]
-      droplet_ids                    = []
-      kubernetes_ids                 = []
-      load_balancer_uids             = []
-      tags                           = []
+      droplet_ids        = []
+      kubernetes_ids     = []
+      load_balancer_uids = []
+      tags               = []
     }
   ]
   description = "List of objects that represent the configuration of each outbound rule."

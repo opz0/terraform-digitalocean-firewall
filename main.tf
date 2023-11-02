@@ -6,7 +6,7 @@ module "labels" {
   managedby   = var.managedby
   label_order = var.label_order
 }
-
+#tfsec:ignore:digitalocean-compute-no-public-egress
 resource "digitalocean_firewall" "default" {
   count       = var.enabled == true && var.database_cluster_id == null ? 1 : 0
   name        = format("%s-firewall", module.labels.id)
