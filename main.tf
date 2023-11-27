@@ -1,6 +1,5 @@
 module "labels" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-labels.git?ref=v1.0.0"
-  version     = "1.0.0"
+  source      = "git::https://github.com/cypik/terraform-digitalocean-labels.git?ref=v1.0.0"
   name        = var.name
   environment = var.environment
   managedby   = var.managedby
@@ -44,12 +43,9 @@ resource "digitalocean_firewall" "default" {
   ]
 }
 
-##------------------------------------------------------------------------------------------------------------------------------------------
-#Description : Provides a DigitalOcean database firewall resource allowing you to restrict connections to your database to trusted sources.
-##------------------------------------------------------------------------------------------------------------------------------------------
 resource "digitalocean_database_firewall" "default" {
   count      = var.enabled == true && var.database_cluster_id != null ? 1 : 0
-  cluster_id = var.database_cluster_id
+  cluster_id = digitalocean_database_cluster.postgres-example.id
   dynamic "rule" {
     for_each = var.rules
     content {
@@ -57,4 +53,13 @@ resource "digitalocean_database_firewall" "default" {
       value = rule.value.value
     }
   }
+}
+
+resource "digitalocean_database_cluster" "postgres-example" {
+  name       = "example-postgres-cluster"
+  engine     = "pg"
+  version    = "13"
+  size       = "db-s-1vcpu-1gb"
+  region     = "nyc1"
+  node_count = 1
 }

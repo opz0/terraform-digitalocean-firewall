@@ -5,7 +5,7 @@ provider "digitalocean" {}
 ## VPC module call
 ##------------------------------------------------
 module "vpc" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-vpc.git?ref=v1.0.0"
+  source      = "git::https://github.com/cypik/terraform-digitalocean-vpc.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   region      = "blr1"
@@ -16,12 +16,12 @@ module "vpc" {
 ## Droplet module call
 ##------------------------------------------------
 module "droplet" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-droplet.git?ref=v1.0.0"
+  source      = "git::https://github.com/cypik/terraform-digitalocean-droplet.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   region      = "blr1"
   vpc_uuid    = module.vpc.id
-  ssh_key     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6SAFyvG3N1ccEk/vidgdrthdhdherhdfb"
+  ssh_key     = "ssh-rsa /GrR3E= baldev@baldev"
   user_data   = file("user-data.sh")
   ####firewall
   enable_firewall = false

@@ -1,5 +1,3 @@
-#Module      : LABEL
-#Description : Terraform label module variables.
 variable "name" {
   type        = string
   default     = ""
@@ -21,7 +19,7 @@ variable "label_order" {
 variable "managedby" {
   type        = string
   default     = "terraform-do-modules"
-  description = "ManagedBy, eg 'terraform-do-modules' or 'hello@Opz0.com'"
+  description = "ManagedBy, eg 'terraform-do-modules' or 'hello@cypik.com'"
 }
 
 variable "enabled" {

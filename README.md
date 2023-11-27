@@ -15,11 +15,11 @@ This Terraform configuration is designed to create and manage a DigitalOcean fir
 
 ## Usage
 
-- # database-firewall
+## Example: database-firewall
 You can use this module in your Terraform configuration like this:
 ```hcl
 module "firewall" {
-  source              = "git::https://github.com/opz0/terraform-digitalocean-firewall.git?ref=v1.0.0"
+  source              = "git::https://github.com/cypik/terraform-digitalocean-firewall.git?ref=v1.0.0"
   name                = "app"
   environment         = "test"
   database_cluster_id = "your_database_cluster_id"
@@ -34,12 +34,11 @@ module "firewall" {
 ```
 Please replace "your_database_cluster_id" with the actual ID of your DigitalOcean database cluster, and adjust the firewall rules as needed.
 
-
-- # default
+## Example: default
 You can use this module in your Terraform configuration like this:
 ```hcl
 module "firewall" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-firewall.git?ref=v1.0.0"
+  source      = "git::https://github.com/cypik/terraform-digitalocean-firewall.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   inbound_rules = [
@@ -72,10 +71,10 @@ module "firewall" {
 This module does not produce any outputs. It is primarily used for labeling resources within your Terraform configuration.
 
 ## Examples
-For detailed examples on how to use this module, please refer to the 'examples' directory within this repository.
+For detailed examples on how to use this module, please refer to the '[examples](https://github.com/cypik/terraform-digitalocean-firewall/blob/master/_examples)' directory within this repository.
 
 ## License
-This Terraform module is provided under the '[License Name]' License. Please see the [LICENSE](https://github.com/opz0/terraform-digitalocean-firewall/blob/readme/LICENSE) file for more details.
+This Terraform module is provided under the '[License Name]' License. Please see the [LICENSE](https://github.com/cypik/terraform-digitalocean-firewall/blob/master/LICENSE) file for more details.
 
 ## Author
 Your Name
