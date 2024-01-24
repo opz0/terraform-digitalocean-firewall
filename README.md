@@ -19,6 +19,7 @@ This Terraform configuration is designed to create and manage a DigitalOcean fir
 # Example: Database-Firewall
 You can use this module in your Terraform configuration like this:
 ```hcl
+
 module "firewall" {
   source              = "cypik/firewall/digitalocean"
   version             = "1.0.1"
@@ -75,14 +76,14 @@ This Terraform module is provided under the **MIT** License. Please see the [LIC
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.4.6 |
-| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | >= 2.28.1 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.6 |
+| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | >= 2.34.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 2.28.1 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 2.34.1 |
 
 ## Modules
 
@@ -106,8 +107,8 @@ This Terraform module is provided under the **MIT** License. Please see the [LIC
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | Flag to control the firewall creation. | `bool` | `true` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
 | <a name="input_inbound_rules"></a> [inbound\_rules](#input\_inbound\_rules) | List of objects that represent the configuration of each inbound rule. | `any` | `[]` | no |
-| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. `name`,`application`. | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'terraform-do-modules' or 'hello@Opz0.com' | `string` | `"terraform-do-modules"` | no |
+| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. `cypik`,`application`. | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'cypik' or 'hello@cypik.com' | `string` | `"cypik"` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name  (e.g. `app` or `cluster`). | `string` | `""` | no |
 | <a name="input_outbound_rule"></a> [outbound\_rule](#input\_outbound\_rule) | List of objects that represent the configuration of each outbound rule. | <pre>list(object({<br>    protocol              = string<br>    port_range            = string<br>    destination_addresses = list(string)<br>    droplet_ids           = list(any)<br>    kubernetes_ids        = list(any)<br>    load_balancer_uids    = list(any)<br>    tags                  = list(any)<br>  }))</pre> | <pre>[<br>  {<br>    "destination_addresses": [<br>      "0.0.0.0/0",<br>      "::/0"<br>    ],<br>    "droplet_ids": [],<br>    "kubernetes_ids": [],<br>    "load_balancer_uids": [],<br>    "port_range": "1-65535",<br>    "protocol": "tcp",<br>    "tags": []<br>  },<br>  {<br>    "destination_addresses": [<br>      "0.0.0.0/0",<br>      "::/0"<br>    ],<br>    "droplet_ids": [],<br>    "kubernetes_ids": [],<br>    "load_balancer_uids": [],<br>    "port_range": "1-65535",<br>    "protocol": "udp",<br>    "tags": []<br>  }<br>]</pre> | no |
 | <a name="input_rules"></a> [rules](#input\_rules) | List of objects that represent the configuration of each inbound rule. | `any` | `[]` | no |
