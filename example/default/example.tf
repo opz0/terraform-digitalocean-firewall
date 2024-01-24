@@ -5,7 +5,8 @@ provider "digitalocean" {}
 ## VPC module call
 ##------------------------------------------------
 module "vpc" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-vpc.git?ref=v1.0.0"
+  source      = "cypik/vpc/digitalocean"
+  version     = "1.0.1"
   name        = "app"
   environment = "test"
   region      = "blr1"
@@ -16,7 +17,8 @@ module "vpc" {
 ## Droplet module call
 ##------------------------------------------------
 module "droplet" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-droplet.git?ref=v1.0.0"
+  source      = "cypik/droplet/digitalocean"
+  version     = "1.0.1"
   name        = "app"
   environment = "test"
   region      = "blr1"

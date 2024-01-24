@@ -15,13 +15,13 @@ variable "environment" {
 variable "label_order" {
   type        = list(any)
   default     = ["name", "environment"]
-  description = "Label order, e.g. `name`,`application`."
+  description = "Label order, e.g. `cypik`,`application`."
 }
 
 variable "managedby" {
   type        = string
-  default     = "terraform-do-modules"
-  description = "ManagedBy, eg 'terraform-do-modules' or 'hello@Opz0.com'"
+  default     = "cypik"
+  description = "ManagedBy, eg 'cypik' or 'hello@cypik.com'"
 }
 
 variable "enabled" {
