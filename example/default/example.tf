@@ -1,4 +1,6 @@
-provider "digitalocean" {}
+provider "digitalocean" {
+
+}
 
 
 ##------------------------------------------------
@@ -18,12 +20,12 @@ module "vpc" {
 ##------------------------------------------------
 module "droplet" {
   source      = "cypik/droplet/digitalocean"
-  version     = "1.0.1"
+  version     = "1.0.2"
   name        = "app"
   environment = "test"
   region      = "blr1"
   vpc_uuid    = module.vpc.id
-  ssh_key     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6SAFyvG3N1ccEk/vidgdrthdhdherhdfb"
+  ssh_key     = "ssh-rsa AAAAB3NzaC1y7zy1sBBNy/p4MDUSsGTc= baldev@baldev"
   user_data   = file("user-data.sh")
   ####firewall
   enable_firewall = false

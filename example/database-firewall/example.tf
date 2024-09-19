@@ -12,7 +12,8 @@ module "firewall" {
   source              = "./../../"
   name                = local.name
   environment         = local.environment
-  database_cluster_id = "" ## add database cluster id
+  enabled             = false
+  database_cluster_id = "" # It's okay to leave this empty if enabled is false
   rules = [
     {
       type  = "ip_addr"
@@ -20,3 +21,4 @@ module "firewall" {
     },
   ]
 }
+
